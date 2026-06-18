@@ -9,6 +9,8 @@ router = APIRouter(prefix="/quiz", tags=["Quiz"])
 
 # Key now lives ONLY here on the backend — never shipped in the app bundle.
 #*******************************************************************************************
+OPENROUTER_API_KEY = ""
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL_FALLBACK_CHAIN = [
     "qwen/qwen3-coder:free",
     "deepseek/deepseek-r1:free",
