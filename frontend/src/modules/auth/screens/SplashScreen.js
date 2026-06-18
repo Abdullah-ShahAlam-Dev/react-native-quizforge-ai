@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLORS, FONTS, RADIUS } from '../../../theme';
 import { isTokenExpired } from '../../../utils/jwtHelper';
 
-const MIN_SPLASH_TIME = 1200; // ms — keeps the brand visible briefly even on fast devices
+const MIN_SPLASH_TIME = 4500; // ms — keeps the brand visible briefly even on fast devices
 
 export default function SplashScreen({ navigation }) {
   useEffect(() => {

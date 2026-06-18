@@ -18,35 +18,35 @@ export const saveQuizRecord = async (record) => {
   }
 };
 
-export const fetchQuizRecords = async () => {
-  try {
-    const response = await api.get('/records');
-    return response.data;
-  } catch (err) {
-    console.log('Backend fetch failed, using local cache:', err.message);
-    return await fetchRecordsLocally(); 
-  }
-};
-
-
-// For Fetch Data from locally and Server both
 // export const fetchQuizRecords = async () => {
 //   try {
-//     // 1. Server se data laao
 //     const response = await api.get('/records');
-//     const serverRecords = response.data;
-
-//     // 2. Local storage se offline wala data laao
-//     const localRecords = await fetchRecordsLocally();
-
-//     // 3. Dono data ko aapas mein merge (mix) kar do
-//     return [...serverRecords, ...localRecords];
-
+//     return response.data;
 //   } catch (err) {
 //     console.log('Backend fetch failed, using local cache:', err.message);
 //     return await fetchRecordsLocally(); 
 //   }
 // };
+
+
+// For Fetch Data from locally and Server both
+export const fetchQuizRecords = async () => {
+  try {
+    // 1. Server se data laao
+    const response = await api.get('/records');
+    const serverRecords = response.data;
+
+    // 2. Local storage se offline wala data laao
+    const localRecords = await fetchRecordsLocally();
+
+    // 3. Dono data ko aapas mein merge (mix) kar do
+    return [...serverRecords, ...localRecords];
+
+  } catch (err) {
+    console.log('Backend fetch failed, using local cache:', err.message);
+    return await fetchRecordsLocally(); 
+  }
+};
 
 
 

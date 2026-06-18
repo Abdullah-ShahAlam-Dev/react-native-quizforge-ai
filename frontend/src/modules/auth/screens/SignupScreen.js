@@ -54,7 +54,7 @@ export default function SignupScreen({ navigation }) {
         <View style={styles.card}>
           <AuthInput
             label="Username"
-            placeholder="e.g. Abdullah Khan"
+            placeholder="e.g. Abdullah Shah"
             value={username}
             onChangeText={setUsername}
             autoCapitalize="words"
